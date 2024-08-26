@@ -76,6 +76,9 @@ button{
     transition: background-color 0.3s ease;
     border-radius: 10px;
 }
+button:hover{
+    background-color: rgb(255, 255, 255);
+}
 .c{
     background-color: rgba(255, 0, 0, 0.359);
     color: whitesmoke;
@@ -85,7 +88,11 @@ button{
     color: white;
 }
 .op{
-background-color: rgb(157, 136, 60);
+background-color: rgb(115, 99, 42);
+}
+.op:hover{
+    background-color: rgb(223, 184, 77);
+    color: white;
 }
 .ee {
     background-color: rgb(255, 255, 255);
