@@ -1,15 +1,20 @@
-
 const display = document.getElementById('display')
-
+let lastActionWasCalculation = false;
 
 function Display(value) {
+    if (lastActionWasCalculation) {
+        display.value = '';  // Clear the display if the last action was a calculation
+        lastActionWasCalculation = false;
+    }
     display.value += value;
 }
 
-function clearDisplay() {
-    localStorage.clear(); 
-    currentIndex = 0;                                                                                                                                                                                                                                           
+function clearDisplay() {                                                                                                                                                                                                                                    
     display.value = '';
+}
+function ClearStorage(){
+    localStorage.clear();
+    currentIndex = 0;
 }
 
 
@@ -23,7 +28,7 @@ function calculate() {
         const result = eval(display.value);
         display.value = result;
         saveCalculation(display.value);
-        
+        lastActionWasCalculation = true;  
     } catch (error) {
         display.value = 'Error';
     }
@@ -48,12 +53,19 @@ function showPreviousCalculations() {
     }
 }
 
-let c = document.getElementById('c');
-let alertShown = false; 
+document.addEventListener('keydown', function(event) {
+    const key = event.key;
 
-c.onmouseover = function() {
-    if (!alertShown) { 
-        alert("This 'C' button can clear your screen and also previous calculation history.");
-        alertShown = true; 
+    if (key >= 0 && key <= 9 || key === '.' || key === '+' || key === '-' || key === '*' || key === '/') {
+        display.value += key;
+    } 
+    else if (key == 'Enter') {
+        calculate();
+    } 
+    else if (key === 'Backspace') {
+        clearLast();
+    } 
+    else if (key === 'c' || key === 'C') {
+        clearDisplay();
     }
-};
+});
