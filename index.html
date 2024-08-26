@@ -10,10 +10,12 @@
 <body>
     <div class="calculator">
         <input type="text" id="display" disabled>
+        <button class="btn" onclick="showPreviousCalculations()">Show Previous</button>
+        <button class="btn" onclick=" ClearStorage()" id="CS">Clear Storage</button>
         <button class="btn c" id="c" onclick="clearDisplay()">C</button>
-        <button class="btn ce" onclick="clearLast()">CE</button>
+        <button class="btn c" onclick="clearLast()">CE</button>
         <button class="btn" onclick="Display('7')">7</button>
-        <button class="btn" onclick="appendToDisplay('8')">8</button>
+        <button class="btn" onclick="Display('8')">8</button>
         <button class="btn" onclick="Display('9')">9</button>
         <button class="btn op" onclick="Display('/')">/</button>
         <button class="btn" onclick="Display('4')">4</button>
@@ -26,10 +28,11 @@
         <button class="btn op" onclick="Display('-')">-</button>
         <button class="btn" onclick="Display('0')">0</button>
         <button class="btn" onclick="Display('.')">.</button>
-        <button class="btn op" onclick="calculate()">=</button>
+        <button class="btn op ee" onclick="calculate()">=</button>
         <button class="btn op" onclick="Display('+')">+</button>
-        <button class="showp" onclick="showPreviousCalculations()">Show Previous</button>
+        
     </div>
+    <a href="test.htm"></a>
     <script src="script.js"></script>
 </body>
 </html>
