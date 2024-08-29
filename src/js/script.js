@@ -1,6 +1,10 @@
 const display = document.getElementById('display')
 let lastActionWasCalculation = false;
 
+document.addEventListener('DOMContentLoaded', function(){
+    const display = document.getElementById('display')
+})
+
 function Display(value) {
     if (lastActionWasCalculation) {
         display.value = '';  // Clear the display if the last action was a calculation
